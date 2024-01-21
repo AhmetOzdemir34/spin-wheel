@@ -1,0 +1,134 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 100px;
+  height: 100px;
+  background-color: #ef9b00;
+  position: absolute;
+  top: -27%;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+}
+
+.container .spin-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  z-index: 100;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #0e0c0c;
+  letter-spacing: 0.1rem;
+  border: 5px solid rgba(255, 255, 255, 0.95);
+  cursor: pointer;
+  user-select: none;
+}
+
+.spin-button {
+  background: #fff;
+  box-shadow: 0 0 25px 1px #0e0c0c;
+}
+
+.container .wheel {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 15px #ef9b00, 0 0 0 18px #ef9b00;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0e0c0c;
+  border-radius: 50%;
+  transition: 5s ease-in-out all;
+}
+
+.container .wheel .mini-container {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  transform-origin: bottom right;
+  transform: rotate(calc(45deg * var(--i)));
+  clip-path: polygon(0 0, 59% 0, 100% 100%, 0 59%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.mini-container:nth-child(even) {
+  background-color: #fff !important;
+  color: #0e0c0c !important;
+}
+.mini-container:nth-child(odd) {
+  background-color: #ef9b00 !important;
+  color: #fff !important;
+}
+
+.container .wheel .mini-container span {
+  font-weight: 900;
+  transform: rotate(45deg);
+  position: relative;
+  font-size: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.wheel-tick {
+  width: 70px;
+  height: 70px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+.wheel-tick::after {
+  content: "";
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  background-color: #ef9b00;
+  border-radius: 50%;
+}
+
+.tick {
+  width: 10px;
+  height: 40px;
+  background: #dc2626;
+  position: relative;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+}

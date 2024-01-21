@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin Wheel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="spin-button"></div>
+      <div class="header">
+        <div class="wheel-tick"></div>
+        <div class="tick"></div>
+      </div>
+      <div class="wheel">
+        <div id="id1" class="mini-container" style="--i: 1">
+          <span>1</span>
+        </div>
+        <div id="id2" class="mini-container" style="--i: 2">
+          <span>2</span>
+        </div>
+        <div id="id3" class="mini-container" style="--i: 3">
+          <span>3</span>
+        </div>
+        <div id="id4" class="mini-container" style="--i: 4">
+          <span>4</span>
+        </div>
+        <div id="id5" class="mini-container" style="--i: 5">
+          <span>5</span>
+        </div>
+        <div id="id6" class="mini-container" style="--i: 6">
+          <span>6</span>
+        </div>
+        <div id="id7" class="mini-container" style="--i: 7">
+          <span>7</span>
+        </div>
+        <div id="id8" class="mini-container" style="--i: 8">
+          <span>8</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let wheel = document.querySelector(".wheel");
+      const sectors = wheel.querySelectorAll("span");
+      let spin = document.querySelector(".spin-button");
+      let value = Math.ceil(Math.random() * 3600);
+      let tick = document.querySelector(".tick");
+
+      spin.onclick = function () {
+        wheel.style.transform = `rotate(${value}deg)`;
+        value += Math.ceil(Math.random() * 3600);
+
+        var tickCoordinates = getSpinCoordinates(tick);
+
+        setTimeout(() => {
+          for (const sector of sectors) {
+            let sectorCoordinates = sector.getBoundingClientRect();
+            if (
+              tickCoordinates.left <= sectorCoordinates.right &&
+              tickCoordinates.right >= sectorCoordinates.left &&
+              tickCoordinates.top <= sectorCoordinates.bottom &&
+              tickCoordinates.bottom >= sectorCoordinates.top
+            ) {
+              console.log(sector);
+            }
+          }
+        }, 5100);
+      };
+
+      function getSpinCoordinates(tick) {
+        return tick.getBoundingClientRect();
+      }
+    </script>
+  </body>
+</html>
