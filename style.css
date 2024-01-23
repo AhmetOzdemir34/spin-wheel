@@ -15,16 +15,16 @@ body {
 
 .container {
   position: relative;
-  width: 400px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .header {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: #ef9b00;
   position: absolute;
   top: -27%;
@@ -33,8 +33,8 @@ body {
 }
 
 .container .spin-button {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   z-index: 100;
   position: absolute;
@@ -43,18 +43,18 @@ body {
   align-items: center;
   color: #0e0c0c;
   letter-spacing: 0.1rem;
-  border: 5px solid rgba(255, 255, 255, 0.95);
+  border: 7px solid rgba(255, 255, 255, 0.95);
   cursor: pointer;
   user-select: none;
 }
 
 .spin-button {
   background: #fff;
-  box-shadow: 0 0 25px 1px #0e0c0c;
+  box-shadow: 0 0 37px 2px #0e0c0c;
 }
 
 .container .wheel {
-  box-shadow: 0 0 0 2px #fff, 0 0 0 15px #ef9b00, 0 0 0 18px #ef9b00;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 22px #ef9b00, 0 0 0 27px #ef9b00;
   overflow: hidden;
   position: absolute;
   top: 0;
@@ -93,14 +93,14 @@ body {
   font-weight: 900;
   transform: rotate(45deg);
   position: relative;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
   width: 100%;
 }
 
 .wheel-tick {
-  width: 70px;
-  height: 70px;
+  width: 105px;
+  height: 105px;
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
@@ -111,8 +111,8 @@ body {
 
 .wheel-tick::after {
   content: "";
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
@@ -122,8 +122,8 @@ body {
 }
 
 .tick {
-  width: 10px;
-  height: 40px;
+  width: 15px;
+  height: 60px;
   background: #dc2626;
   position: relative;
   left: 50%;
@@ -131,4 +131,92 @@ body {
   transform: translate(-50%, -50%);
   z-index: 101;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+@media (max-width: 500px) {
+  .container {
+    width: 300px;
+    height: 300px;
+  }
+
+  .header {
+    width: 75px;
+    height: 75px;
+  }
+  .container .spin-button {
+    width: 45px;
+    height: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.95);
+  }
+  .spin-button {
+    box-shadow: 0 0 18px 1px #0e0c0c;
+  }
+
+  .container .wheel {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 12px #ef9b00, 0 0 0 13px #ef9b00;
+  }
+
+  .container .wheel .mini-container span {
+    font-size: 15px;
+  }
+
+  .wheel-tick {
+    width: 52px;
+    height: 52px;
+  }
+
+  .wheel-tick::after {
+    content: "";
+    width: 38px;
+    height: 38px;
+  }
+
+  .tick {
+    width: 8px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    width: 400px;
+    height: 400px;
+  }
+
+  .header {
+    width: 100px;
+    height: 100px;
+  }
+  .container .spin-button {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.95);
+  }
+  .spin-button {
+    box-shadow: 0 0 25px 1px #0e0c0c;
+  }
+
+  .container .wheel {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 15px #ef9b00, 0 0 0 18px #ef9b00;
+  }
+
+  .container .wheel .mini-container span {
+    font-size: 20px;
+  }
+
+  .wheel-tick {
+    width: 70px;
+    height: 70px;
+  }
+
+  .wheel-tick::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+  }
+
+  .tick {
+    width: 10px;
+    height: 40px;
+  }
 }
